@@ -10,13 +10,12 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-# Configure logging
 logging.basicConfig(filename='bujji.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Initialize the text-to-speech engine
+
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)  # Change to a more sophisticated voice if available
+engine.setProperty('voice', voices[1].id)  
 
 def speak(text):
     engine.say(text)
@@ -81,7 +80,7 @@ def search_information(query):
 def execute_command(command):
     try:
         if "hi bujji" in command:
-            speak("Hi boss, I am your assistant Pandu. How can I help you today?")
+            speak("Hi boss, I am your assistant Bujji. How can I help you today?")
         elif "hi" in command or "hello" in command:
             speak("Hi! How can I assist you today?")
         elif "open notepad" in command:
@@ -139,7 +138,7 @@ def execute_command(command):
 
 def verify_user():
     """Verify if the user is one of the allowed members."""
-    allowed_names = ["sukumar", "varshini", "harsha", "susmitha", "basha"]
+    allowed_names = ["sukumar", "varshini", "harsha", "susmitha", "basha",]
     speak("Please say your name.")
     name = take_command()
     if name in allowed_names:
@@ -179,3 +178,4 @@ L2 = Label(scr, text="Voice Assistant as Bujji", font=("arial", 20), fg="black",
 insert = Button(scr, text="Start", font=("bold", 20), fg="blue", bg="white", width=10, command=start_voice_assistant).place(x=600, y=200)
 
 scr.mainloop()
+
